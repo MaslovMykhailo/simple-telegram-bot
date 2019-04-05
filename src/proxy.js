@@ -1,18 +1,10 @@
 "use strict";
 
-const { log } = require("./utils");
-
 const proxify = (provider, request, response) => {
   const proxyOptions = {
     headers: request.headers,
     method: request.method
   };
-
-  log.redirect({
-    url: request.url,
-    ...proxyOptions
-  });
-
   const proxy = provider.request(request.url, proxyOptions);
 
   request.pipe(
@@ -21,8 +13,7 @@ const proxify = (provider, request, response) => {
   );
 
   proxy.on("response", res => {
-    log.incomingMessage(res);
-    res.headers["ya-bil-tut"] = "true";
+    res.headers["my-data"] = "some_val";
     response.writeHead(res.statusCode, res.statusMessage, res.headers);
     res.pipe(
       response,

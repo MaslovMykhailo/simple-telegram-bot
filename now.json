@@ -1,4 +1,9 @@
 {
-  "version": 1,
-  "name": "node_labs"
+  "name": "node_labs",
+  "version": 2,
+  "builds": [{ "src": "index.js", "use": "@now/node" }],
+  "env": {
+    "TELEGRAM_TOKEN": "@telegram-api-token",
+    "WEBHOOK": "https://nodelabs-75fhazxqg.now.sh/"
+  }
 }

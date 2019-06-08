@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node test/",
+    "start": "node index.js",
     "lint": "eslint .",
     "build": "echo node_labs",
     "deploy": "now alias --token $NOW_TOKEN $(now --token $NOW_TOKEN --name \"node_labs-$TRAVIS_BRANCH\") \"node_labs-$TRAVIS_BRANCH\""
@@ -14,5 +15,8 @@
   "devDependencies": {
     "eslint": "^5.14.1",
     "now": "^14.0.0"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.30.0"
   }
 }

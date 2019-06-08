@@ -2,7 +2,7 @@ env:
   commonjs: true
   es6: true
   node: true
-extends: 'eslint:recommended'
+extends: "eslint:recommended"
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
@@ -112,7 +112,6 @@ rules:
   no-magic-numbers: error
   no-misleading-character-class: error
   no-mixed-operators: error
-  no-mixed-requires: error
   no-multi-assign: error
   no-multi-spaces: error
   no-multi-str: error
@@ -130,7 +129,6 @@ rules:
   no-param-reassign: error
   no-path-concat: error
   no-plusplus: error
-  no-process-env: error
   no-process-exit: error
   no-proto: error
   no-prototype-builtins: error
@@ -206,7 +204,6 @@ rules:
   semi-style: error
   sort-imports: error
   sort-keys: error
-  sort-vars: error
   space-before-blocks: error
   space-before-function-paren: error
   space-in-parens: error

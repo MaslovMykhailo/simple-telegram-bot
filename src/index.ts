@@ -1,9 +1,6 @@
 import Telegraf from 'telegraf';
 
-// import { TELEGRAM_TOKEN, WEBHOOK } from './env';
-
-const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN as string;
-const WEBHOOK = process.env.WEBHOOK as string;
+import { TELEGRAM_TOKEN, WEBHOOK } from './env';
 
 const bot = new Telegraf(TELEGRAM_TOKEN);
 

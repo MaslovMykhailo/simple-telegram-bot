@@ -1,9 +1,20 @@
 {
   "name": "node_labs",
   "version": 2,
-  "builds": [{ "src": "index.js", "use": "@now/node" }],
+  "builds": [{ "src": "build/index.js", "use": "@now/node" }],
   "env": {
     "TELEGRAM_TOKEN": "@telegram-api-token",
-    "WEBHOOK": "https://nodelabs-75fhazxqg.now.sh/"
-  }
+    "WEBHOOK": "https://nodelabs.maslovmikhail2000.now.sh"
+  },
+  "routes": [
+    {
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+      },
+      "src": "/.*",
+      "dest": "/build/index.js"
+    }
+  ]
 }

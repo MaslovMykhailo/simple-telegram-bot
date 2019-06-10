@@ -1,4 +1,26 @@
 {
-  "version": 1,
-  "name": "node_labs"
+  "name": "node_labs",
+  "version": 2,
+  "builds": [
+    {
+      "src": "build/index.js",
+      "use": "@now/node",
+      "config": { "maxLambdaSize": "45mb" }
+    }
+  ],
+  "env": {
+    "TELEGRAM_TOKEN": "@telegram-api-token",
+    "WEBHOOK": "https://nodelabs.maslovmikhail2000.now.sh"
+  },
+  "routes": [
+    {
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+      },
+      "src": "/.*",
+      "dest": "/build/index.js"
+    }
+  ]
 }

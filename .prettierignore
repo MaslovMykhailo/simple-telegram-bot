@@ -1,0 +1,6 @@
+# Do not format generated files
+yarn.lock
+package-lock.json
+
+# Do not format bundles
+build

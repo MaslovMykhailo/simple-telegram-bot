@@ -1,0 +1,15 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "jsRules": {},
+  "rules": {
+    "no-var-requires": false,
+    "no-submodule-imports": [true],
+    "ordered-imports": false,
+    "quotemark": [true, "single"],
+    "variable-name": [true, "allow-leading-underscore", "allow-pascal-case"],
+    "object-literal-sort-keys": false,
+    "interface-over-type-literal": [false]
+  },
+  "rulesDirectory": []
+}

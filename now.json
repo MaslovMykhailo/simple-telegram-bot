@@ -1,7 +1,13 @@
 {
   "name": "node_labs",
   "version": 2,
-  "builds": [{ "src": "build/index.js", "use": "@now/node" }],
+  "builds": [
+    {
+      "src": "build/index.js",
+      "use": "@now/node",
+      "config": { "maxLambdaSize": "45mb" }
+    }
+  ],
   "env": {
     "TELEGRAM_TOKEN": "@telegram-api-token",
     "WEBHOOK": "https://nodelabs.maslovmikhail2000.now.sh"

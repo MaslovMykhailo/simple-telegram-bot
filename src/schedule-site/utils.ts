@@ -3,7 +3,7 @@ import { Scraper } from '../scraper';
 import { closestPairCellSelector, cellContentSelector } from '../constants';
 import { ScheduleRecord, Schedule } from './types';
 
-const groupPattern = /^[А-ЯA-Z]{2}-\d{2}$/;
+const groupPattern = /^[А-ЩЬЮЯЇІЄҐ]{2}-\d{2}$/;
 
 export const getGroupFromCommandMessage = (
     command: Commands,

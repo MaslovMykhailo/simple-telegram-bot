@@ -5,6 +5,7 @@ import { description } from '../constants';
 const infoDirection: Array<keyof ScheduleRecord> = [
     'subject',
     'teacher',
+    'classType',
     'building',
     'room',
     'pairNumber',
@@ -20,6 +21,7 @@ export const formatScheduleRecord = (record: ScheduleRecord | undefined) => {
             .filter(Boolean);
 
         if (formated.length <= 2) {
+            // 2? => the record always have time and pair number properties
             return '';
         } else {
             return formated.join('\n');

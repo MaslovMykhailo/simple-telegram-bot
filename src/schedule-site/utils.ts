@@ -2,6 +2,7 @@ import { Commands } from '../command-handlers';
 import { Scraper } from '../scraper';
 import { closestPairCellSelector, cellContentSelector } from '../constants';
 import { ScheduleRecord, Schedule } from './types';
+import { formatString } from '../utils';
 
 const groupPattern = /^[А-ЩЬЮЯЇІЄҐ]{2}-\d{2}$/;
 
@@ -22,14 +23,20 @@ export const getGroupFromCommandMessage = (
     }
 };
 
-export const locationToBuildingAndRoom = (
-    location?: string
-): Partial<ScheduleRecord> => {
+export const splitLocation = (location?: string): Partial<ScheduleRecord> => {
     if (location) {
-        const [room, building] = location.split('-');
-        return { building, room };
+        const [room, buildingAndClassType] = location.split('-');
+        const [building, classType] = buildingAndClassType.split(' ');
+
+        return Object.entries({ building, room, classType }).reduce(
+            (accum, [key, entity]) => ({
+                ...accum,
+                [key]: formatString(entity)
+            }),
+            {}
+        );
     } else {
-        return { building: undefined, room: undefined };
+        return { building: undefined, room: undefined, classType: undefined };
     }
 };
 
@@ -44,18 +51,15 @@ export const getScheduleRecordFromTableCell = (
             elem => elem.innerHTML
         );
 
-        const { building, room } = locationToBuildingAndRoom(location);
-
         const row = cell.closest('tr')!;
         const [pairNumber, time] = row.children[0].innerHTML.split('<br>');
 
         return {
             subject,
             teacher,
-            building,
-            room,
             pairNumber,
-            time
+            time,
+            ...splitLocation(location)
         };
     }
 };

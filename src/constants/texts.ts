@@ -14,5 +14,6 @@ export const description: Record<keyof ScheduleRecord, string> = {
     building: 'Корпус: ',
     room: 'Аудиторія: ',
     pairNumber: 'Пара номер: ',
-    time: 'Початок у '
+    time: 'Початок у ',
+    classType: 'Тип заняття: '
 };

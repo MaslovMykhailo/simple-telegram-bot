@@ -9,6 +9,7 @@ export type ScheduleRecord = {
     teacher?: string;
     building?: string;
     room?: string;
+    classType?: string;
     pairNumber: string;
     time: string;
 };

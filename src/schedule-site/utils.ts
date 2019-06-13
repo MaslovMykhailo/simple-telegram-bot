@@ -47,9 +47,11 @@ export const getScheduleRecordFromTableCell = (
         cell.querySelectorAll(cellContentSelector)
     ) as HTMLAnchorElement[];
     if (cellContent.length) {
-        const [subject, teacher, location] = cellContent.map(
-            elem => elem.innerHTML
-        );
+        const cellsContent = cellContent.map(elem => elem.innerHTML);
+
+        const subject = cellsContent.shift();
+        const location = cellsContent.pop();
+        const teacher = cellsContent.join(', ');
 
         const row = cell.closest('tr')!;
         const [pairNumber, time] = row.children[0].innerHTML.split('<br>');
